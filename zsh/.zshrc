@@ -1,0 +1,47 @@
+# Set up the prompt
+autoload -Uz promptinit
+promptinit
+# prompt suse
+
+prompt_david_setup() {
+	PS1='%B%F{green}%n@%m:%f%F{blue}%~%f%b%# '
+}
+prompt_themes+=( david )
+prompt david
+
+setopt histignorealldups sharehistory
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=10000
+SAVEHIST=100000
+HISTFILE=~/.zsh_history
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+# use shift-tab for reverse tabbing
+bindkey -M menuselect "^[[Z" reverse-menu-complete
+
+# behave more like bash
+# -------------------
+autoload -Uz run-help
+(( ${+aliases[run-help]} )) && unalias run-help
+alias help=run-help
+
+autoload select-word-style
+select-word-style bash
+
+# might only work on xterm-like terminals
+bindkey "^[[1;5C" emacs-forward-word
+bindkey "^[[1;5D" emacs-backward-word
+# -------------------
+
+# source bash aliases
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
