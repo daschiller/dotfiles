@@ -36,6 +36,8 @@ alias help=run-help
 autoload select-word-style
 select-word-style bash
 
+setopt histignorespace
+
 # might only work on xterm-like terminals
 bindkey "^[[1;5C" emacs-forward-word
 bindkey "^[[1;5D" emacs-backward-word
