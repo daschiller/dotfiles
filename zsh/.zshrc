@@ -1,3 +1,11 @@
+# source profile files
+if [ -f /etc/profile ]; then
+    . /etc/profile
+fi
+if [ -f ~/.profile ]; then
+    . ~/.profile
+fi
+
 # Set up the prompt
 autoload -Uz promptinit
 promptinit
