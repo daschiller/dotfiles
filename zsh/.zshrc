@@ -41,8 +41,13 @@ autoload -Uz run-help
 (( ${+aliases[run-help]} )) && unalias run-help
 alias help=run-help
 
-autoload select-word-style
-select-word-style bash
+# make C-W and M-Backspace do the expected
+backward-kill-dir() {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-kill-word
+}
+zle -N backward-kill-dir
+bindkey '^[^?' backward-kill-dir
 
 setopt histignorespace
 
