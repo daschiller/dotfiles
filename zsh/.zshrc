@@ -31,6 +31,7 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' special-dirs true
 zmodload zsh/complist
 # use shift-tab for reverse tabbing
 bindkey -M menuselect "^[[Z" reverse-menu-complete
