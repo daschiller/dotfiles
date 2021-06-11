@@ -44,7 +44,7 @@ alias help=run-help
 
 # make C-W and M-Backspace do the expected
 backward-kill-dir() {
-    local WORDCHARS=${WORDCHARS/\/}
+    local WORDCHARS=""
     zle backward-kill-word
 }
 zle -N backward-kill-dir
