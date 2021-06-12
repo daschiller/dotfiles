@@ -44,23 +44,14 @@ let g:ale_fixers = {
 
 set nocompatible
 set encoding=utf-8
-" use different colorscheme over ssh
-" if !empty($SSH_CONNECTION)
-"     " colorscheme darkblue
-"     colorscheme default
-" else
-    " tmux true-color compatibility
-    if exists("$TMUX")
-        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    endif
-    set termguicolors
-    set cursorline
-    set background=dark
-    colorscheme solarized8
-    let g:airline_theme='solarized'
-    let g:airline_solarized_bg='dark'
-" endif
+if exists("$TMUX")
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+set termguicolors
+set cursorline
+set background=dark
+colorscheme solarized8
 
 " syntax highlighting
 syntax on
