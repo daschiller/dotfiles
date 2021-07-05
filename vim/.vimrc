@@ -32,7 +32,6 @@ map <C-n> :NERDTreeToggle<CR>
 let g:jedi#use_splits_not_buffers = "top"
 let g:jedi#popup_on_dot = 0
 " ale
-let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \   'python': ['flake8'],
 \}
