@@ -1,9 +1,11 @@
+$include /etc/inputrc
+
 set enable-bracketed-paste
-#set editing-mode vi # or use 'set -o vi' in bash
 set show-mode-in-prompt on
 set emacs-mode-string
-# use block cursor for cmd (normal) mode
-# and line cursor for insert mode
+#set editing-mode vi
+
+# use block cursor for cmd (normal) mode and line cursor for insert mode
 # Linux VT uses different escape codes
 $if term=linux
 	set vi-ins-mode-string \1\e[?0c\2
