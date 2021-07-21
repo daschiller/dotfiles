@@ -61,3 +61,8 @@ bindkey "^[[1;5D" emacs-backward-word
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
+
+# enable zsh-syntax-highlighting if availalble
+if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	. /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
