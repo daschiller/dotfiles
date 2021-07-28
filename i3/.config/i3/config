@@ -190,3 +190,4 @@ for_window [class=".*"] border pixel 3
 
 #gaps inner 20
 #gaps outer 20
+for_window [workspace="0"] floating enable
