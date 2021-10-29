@@ -15,17 +15,20 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ConradIrwin/vim-bracketed-paste'
 " Plug 'altercation/vim-colors-solarized'
 Plug 'lifepillar/vim-solarized8'
+Plug 'arcticicestudio/nord-vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf'
+" Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Get the defaults that most users want
 " (includes restoring of cursor position)
 source $VIMRUNTIME/defaults.vim
 
-" vim-airline
+" vim-airline (install fonts-powerline)
 let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
 " jedi-vim
