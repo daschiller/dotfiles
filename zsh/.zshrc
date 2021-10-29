@@ -12,7 +12,9 @@ promptinit
 # prompt suse
 
 prompt_david_setup() {
-	PS1='%B%F{green}%n@%m:%f%F{blue}%~%f%b%# '
+    # set window title
+    TITLE=$'%{\e]0;%n@%m\a%}'
+    PS1="${TITLE}%B%F{green}%n@%m:%f%F{blue}%~%f%b%# "
 }
 prompt_themes+=( david )
 prompt david
@@ -59,10 +61,10 @@ bindkey "^[[1;5D" emacs-backward-word
 
 # source bash aliases
 if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
+    . ~/.bash_aliases
 fi
 
 # enable zsh-syntax-highlighting if availalble
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-	. /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
