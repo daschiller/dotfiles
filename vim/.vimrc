@@ -19,7 +19,9 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf'
-" Plug 'ryanoasis/vim-devicons'
+if has("gui_running")
+    Plug 'ryanoasis/vim-devicons'
+endif
 call plug#end()
 
 " Get the defaults that most users want
@@ -28,7 +30,9 @@ source $VIMRUNTIME/defaults.vim
 
 " vim-airline (install fonts-powerline)
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline_powerline_fonts = 1
+if has("gui_running")
+    let g:airline_powerline_fonts = 1
+endif
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
 " jedi-vim

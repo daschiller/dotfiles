@@ -1,2 +1,2 @@
 set guioptions-=T
-set guifont=Monospace\ 11
+set guifont=Hack\ Nerd\ Font\ Mono\ 11,Monospace\ 11
