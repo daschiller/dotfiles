@@ -25,8 +25,8 @@ crc32() {
 	rhash -C --percents --speed --simple --uppercase -r "$@" && tput bel
 }
 
-# apply vim theming over ssh
-alias vim-color='SSH_CONNECTION="" vim'
+# open file in existing gvim
+alias gvim='gvim --remote-silent'
 
 # cdf - cd into the directory of the selected file using fzf
 cdf() {
