@@ -26,7 +26,7 @@ crc32() {
 }
 
 # open file in existing gvim
-alias gvim='gvim --remote-silent'
+alias gvim='gvim --remote-tab-silent'
 
 # cdf - cd into the directory of the selected file using fzf
 cdf() {
