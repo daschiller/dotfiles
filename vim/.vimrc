@@ -125,7 +125,8 @@ endif
 set termguicolors
 set cursorline
 set background=dark
-colorscheme solarized8
+" correctly load colorscheme on first install
+autocmd vimenter * nested colorscheme solarized8
 
 " recommended settings (from Debian)
 set showmatch   " Show matching brackets
