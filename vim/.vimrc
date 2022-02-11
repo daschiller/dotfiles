@@ -1,4 +1,5 @@
-" install vim-plug
+" vim-plug
+" ========
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -28,6 +29,13 @@ call plug#end()
 " (includes restoring of cursor position)
 source $VIMRUNTIME/defaults.vim
 
+
+" jedi-vim
+" ========
+" let g:jedi#use_splits_not_buffers = "top"
+" let g:jedi#popup_on_dot = 0
+
+
 " vim-airline (install fonts-powerline)
 " ===========
 let g:airline#extensions#tabline#enabled = 1
@@ -35,14 +43,15 @@ if has("gui_running")
     let g:airline_powerline_fonts = 1
 endif
 
-" nerdtree
-" ========
-map <C-n> :NERDTreeToggle<CR>
 
-" jedi-vim
-" ========
-" let g:jedi#use_splits_not_buffers = "top"
-" let g:jedi#popup_on_dot = 0
+" fzf
+" ===
+if executable("bat")
+    let $FZF_DEFAULT_OPTS="--preview='bat -p --color=always {}'"
+else
+    let $FZF_DEFAULT_OPTS="--preview='less {}'"
+endif
+
 
 " ale
 " ===
@@ -50,7 +59,7 @@ map <C-n> :NERDTreeToggle<CR>
 " flake8 pydocstyle isort black
 " clangd clang-format bear
 "
-" The C/C++ language server need a compilation database,
+" The C/C++ language server needs a compilation database,
 " which can be created with bear from a plain Makefile.
 "
 " pylsp can be installed via pip (or pipx):
@@ -112,12 +121,19 @@ let g:ale_set_balloons = 1
 " set mousemodel=popup_setpos
 " let g:ale_popup_menu_enabled=1
 
-" key binds
+
+" key bindings
+" ============
 nmap <leader>d <Plug>(ale_go_to_definition)
 nmap <leader>f <Plug>(ale_fix)
 nmap <leader>t <Plug>(ale_go_to_type_definition)
 nmap <leader>h <Plug>(ale_hover)
+nmap <leader>z :FZF<CR>
+map <C-n> :NERDTreeToggle<CR>
 
+
+" theming
+" =======
 if exists("$TMUX")
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -128,13 +144,19 @@ set background=dark
 " correctly load colorscheme on first install
 autocmd vimenter * nested colorscheme solarized8
 
+
 " recommended settings (from Debian)
+" ====================
 set showmatch   " Show matching brackets
 set ignorecase  " Do case insensitive matching
 set smartcase   " Do smart case matching
 set autowrite   " Automatically save before commands like :next and :make
 set hidden      " Hide buffers when they are abandoned
 
+" general settings
+" ================
+" shorten timeout
+set updatetime=100
 " zsh-like command completion
 set wildmode=longest,list,full
 set relativenumber number
@@ -147,7 +169,6 @@ set list
 "set listchars=tab:→\ ,trail:␣,extends:…,eol:⏎
 set listchars=tab:→\ ,trail:␣
 autocmd FileType c,cpp setlocal commentstring=//\ %s
-
 " place swap, backup and undo files in special directories
 if !isdirectory($HOME . '/.vim/swap')
     call mkdir($HOME . '/.vim/swap', 'p')
@@ -162,5 +183,3 @@ set directory^=$HOME/.vim/swap//
 set backupdir^=$HOME/.vim/backup//
 set undodir^=$HOME/.vim/undo//
 
-" shorten timeout
-set updatetime=100
