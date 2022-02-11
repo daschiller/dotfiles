@@ -25,6 +25,7 @@ if has("gui_running")
 endif
 call plug#end()
 
+
 " Get the defaults that most users want
 " (includes restoring of cursor position)
 source $VIMRUNTIME/defaults.vim
@@ -110,12 +111,6 @@ let g:ale_cpp_clangd_options = '--enable-config'
 " let g:ale_cpp_clangd_options = '"--query-driver=~/platformio/**/*g++,/usr/bin/**/*g++"'
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
-imap <expr> <C-Space> pumvisible() ? "<C-n>" : "<Plug>(ale_complete)"
-" used for Ctrl + Space in terminal
-imap <C-@> <C-Space>
-set mouse=a
-set ttymouse=sgr
-set balloonevalterm
 let g:ale_set_balloons = 1
 " " enable right click context menu
 " set mousemodel=popup_setpos
@@ -124,12 +119,15 @@ let g:ale_set_balloons = 1
 
 " key bindings
 " ============
+imap <expr> <C-Space> pumvisible() ? "<C-n>" : "<Plug>(ale_complete)"
+" used for Ctrl + Space in terminal
+imap <C-@> <C-Space>
 nmap <leader>d <Plug>(ale_go_to_definition)
 nmap <leader>f <Plug>(ale_fix)
 nmap <leader>t <Plug>(ale_go_to_type_definition)
 nmap <leader>h <Plug>(ale_hover)
 nmap <leader>z :FZF<CR>
-map <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
 
 
 " theming
@@ -156,6 +154,9 @@ set hidden      " Hide buffers when they are abandoned
 " general settings
 " ================
 " shorten timeout
+set mouse=a
+set ttymouse=sgr
+set balloonevalterm
 set updatetime=100
 " zsh-like command completion
 set wildmode=longest,list,full
