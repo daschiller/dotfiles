@@ -13,7 +13,7 @@ promptinit
 
 prompt_david_setup() {
     # set window title
-    TITLE=$'%{\e]0;%n@%m\a%}'
+    TITLE=$'%{\e]0;%n@%m: %~\a%}'
     PS1="${TITLE}%B%F{green}%n@%m:%f%F{blue}%~%f%b%# "
 }
 prompt_themes+=( david )
