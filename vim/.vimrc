@@ -102,6 +102,7 @@ let g:ale_fixers = {
 \   'python': ['isort', 'black'],
 \   'c': ['clang-format'],
 \   'cpp': ['clang-format'],
+\   'sh': ['shfmt'],
 \}
 let g:ale_c_clangformat_options = '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
 let g:ale_cpp_clangformat_options = '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
