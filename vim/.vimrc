@@ -7,19 +7,24 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'preservim/nerdtree'
-Plug 'airblade/vim-gitgutter'
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'lifepillar/vim-solarized8'
-Plug 'arcticicestudio/nord-vim'
-" Plug 'davidhalter/jedi-vim'
-Plug 'dense-analysis/ale'
-Plug 'junegunn/fzf'
+" tpope
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-dispatch'
+" general plugins
+    Plug 'ConradIrwin/vim-bracketed-paste'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'preservim/nerdtree'
+    Plug 'junegunn/fzf'
+" coding
+    " Plug 'davidhalter/jedi-vim'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'dense-analysis/ale'
+" themes
+    Plug 'lifepillar/vim-solarized8'
+    Plug 'lifepillar/vim-gruvbox8'
+    Plug 'arcticicestudio/nord-vim'
 if has("gui_running")
     Plug 'ryanoasis/vim-devicons'
 endif
@@ -113,9 +118,11 @@ let g:ale_cpp_clangd_options = '--enable-config'
 let g:ale_completion_enabled = 1
 let g:ale_completion_autoimport = 1
 let g:ale_set_balloons = 1
-" " enable right click context menu
-" set mousemodel=popup_setpos
-" let g:ale_popup_menu_enabled=1
+" enable right click context menu
+if has("gui_running")
+    set mousemodel=popup_setpos
+    let g:ale_popup_menu_enabled=1
+endif
 
 
 " key bindings
