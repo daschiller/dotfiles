@@ -17,7 +17,7 @@ alias tempsftp='sftp -o UserKnownHostsFile=/dev/null -o PubkeyAuthentication=no'
 alias vpnexec='sudo ip netns exec vpn sudo -u $(whoami)'
 # allow command completion (-c)
 if [ -n "$BASH_VERSION" ]; then
-	complete -c vpnexec
+    complete -c vpnexec
 fi
 
 # ring terminal bell
@@ -25,7 +25,7 @@ alias bell='tput bel'
 
 # function to calculate CRC32 and ring bell upon completion
 crc32() {
-	rhash -C --percents --speed --simple --uppercase -r "$@" && tput bel
+    rhash -C --percents --speed --simple --uppercase -r "$@" && tput bel
 }
 
 # open file in existing gvim
@@ -33,9 +33,14 @@ alias gvim='gvim --remote-tab-silent'
 
 # cdf - cd into the directory of the selected file using fzf
 cdf() {
-   local file
-   local dir
-   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+    local file
+    local dir
+    file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
 
 alias phd='cd ~/gdrive/Studium/PhD'
+
+# debian renames bat to batcat, undo it
+if command -v batcat >/dev/null 2>&1; then
+    alias bat='batcat'
+fi
