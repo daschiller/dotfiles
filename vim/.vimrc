@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'lifepillar/vim-solarized8'
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'dracula/vim'
 if has("gui_running")
     Plug 'ryanoasis/vim-devicons'
 endif
@@ -121,7 +122,7 @@ let g:ale_set_balloons = 1
 " enable right click context menu
 if has("gui_running")
     set mousemodel=popup_setpos
-    let g:ale_popup_menu_enabled=1
+    let g:ale_popup_menu_enabled = 1
 endif
 
 
@@ -144,6 +145,9 @@ if exists("$TMUX")
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
+" disable background color erase
+" (fixes background rendering in kitty, probably other terminals too)
+let &t_ut= ""
 set termguicolors
 set cursorline
 set background=dark
