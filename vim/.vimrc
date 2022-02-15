@@ -6,6 +6,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" export FANCY_TERM=1 in ~/.xprofile to enable
+if exists("$FANCY_TERM") && ! exists("$TMUX")
+    let FANCY = 1
+else
+    let FANCY = 0
+endif
+
 call plug#begin('~/.vim/plugged')
 " tpope
     Plug 'tpope/vim-surround'
@@ -26,7 +33,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'arcticicestudio/nord-vim'
     Plug 'dracula/vim'
-if has("gui_running")
+if FANCY
     Plug 'ryanoasis/vim-devicons'
 endif
 call plug#end()
@@ -46,7 +53,7 @@ source $VIMRUNTIME/defaults.vim
 " vim-airline (install fonts-powerline)
 " ===========
 let g:airline#extensions#tabline#enabled = 1
-if has("gui_running")
+if FANCY
     let g:airline_powerline_fonts = 1
 endif
 
@@ -147,7 +154,10 @@ if exists("$TMUX")
 endif
 " disable background color erase
 " (fixes background rendering in kitty, probably other terminals too)
-let &t_ut= ""
+let &t_ut = ""
+" disable detection of terminal version string
+" (fixes redraw bug with kitty and devicons)
+let &t_RV = ""
 set termguicolors
 set cursorline
 set background=dark
