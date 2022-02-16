@@ -79,8 +79,10 @@ endif
 " pylsp can be installed via pip (or pipx):
 " pipx install --system-site-packages 'python-lsp-server[all]'
 let g:ale_default_navigation = 'split'
-let g:ale_floating_preview = 1
-let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+if has("popupwin")
+    let g:ale_floating_preview = 1
+    let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+endif
 let g:ale_linters = {
 \   'python': ['pylsp', 'flake8', 'pydocstyle'],
 \   'c': ['clangd'],
