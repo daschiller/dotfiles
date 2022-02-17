@@ -185,9 +185,12 @@ bar {
 for_window [class=".*"] border pixel 3
 
 # solarized window border
-# class         border  backgr. text    indicator child_border
-#client.focused  #859900 #285577 #ffffff #2e9ef4   #859900
+#class          border  backgr. text    indicator child_border
+#client.focused #859900 #285577 #ffffff #2e9ef4   #859900
 
 #gaps inner 20
 #gaps outer 20
 for_window [workspace="0"] floating enable
+
+# screen lock
+bindsym XF86ScreenSaver exec --no-startup-id lock
