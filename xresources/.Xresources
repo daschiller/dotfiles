@@ -14,14 +14,14 @@ UXTerm.vt100.scrollKey: true
 UXTerm.vt100.scrollTtyOutput: false
 !UXTerm.vt100.visualBell: true
 !UXTerm.vt100.reverseVideo: true
+
+! font config
+UXTerm.vt100.faceName: DejaVuSansMono Nerd Font Mono
+UXTerm.vt100.faceSize: 10
+UXTerm.vt100.renderFont: true
 UXTerm.vt100.translations: #override \n\
     Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
     Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
-
-! font config
-UXTerm.vt100.faceName: Monospace
-UXTerm.vt100.faceSize: 10
-UXTerm.vt100.renderFont: true
 
 ! #include ".Xresources.solarized-dark"
 #include ".Xresources.solarized-light"

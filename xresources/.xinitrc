@@ -5,16 +5,18 @@
 # Executed by startx (run your window manager from here)
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
-  for f in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$f" ] && . "$f"
-  done
-  unset f
+    for f in /etc/X11/xinit/xinitrc.d/*; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
 fi
 
-[ -f ~/.Xresources ] && xrdb -merge -I"$HOME" ~/.Xresources
-xsetroot -solid grey
-#~/.fehbg &
+[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f ~/.xprofile ] && . ~/.xprofile
+[ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
+
+# xsetroot -solid grey
+~/.fehbg &
 setxkbmap -layout eu -option -option caps:escape
-#export TERMINAL=st
 
 exec i3
