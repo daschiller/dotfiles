@@ -26,6 +26,7 @@ prompt_themes+=( david )
 prompt david
 
 # COMPLETION
+setopt no_auto_remove_slash
 autoload -Uz compinit
 compinit
 zstyle ":completion:*" menu select
