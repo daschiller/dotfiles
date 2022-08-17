@@ -7,8 +7,8 @@ alias ll='ls -alF'
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # ssh without touching known_hosts or sending keys
-alias tempssh='ssh -o UserKnownHostsFile=/dev/null -o PubkeyAuthentication=no'
-alias tempsftp='sftp -o UserKnownHostsFile=/dev/null -o PubkeyAuthentication=no'
+alias tempssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeychecking=no -o PubkeyAuthentication=no'
+alias tempsftp='sftp -o UserKnownHostsFile=/dev/null -o StrictHostKeychecking=no -o PubkeyAuthentication=no'
 
 # run application in vpn network namespace
 alias vpnexec='sudo ip netns exec vpn sudo -u "$(whoami)"'
