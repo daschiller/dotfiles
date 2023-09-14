@@ -48,6 +48,10 @@ backward-kill-dir() {
 }
 zle -N backward-kill-dir
 bindkey "^[^?" backward-kill-dir
+# line editing in external editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
 
 
 # KEY BINDINGS
