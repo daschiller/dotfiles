@@ -118,6 +118,7 @@ let g:ale_fixers = {
 \   'c': ['clang-format'],
 \   'cpp': ['clang-format'],
 \   'sh': ['shfmt'],
+\   'yaml': ['yamlfix'],
 \}
 let g:ale_c_clangformat_options = '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
 let g:ale_cpp_clangformat_options = '-style="{BasedOnStyle: llvm, IndentWidth: 4}"'
