@@ -41,3 +41,7 @@ alias phd='cd ~/gdrive/Studium/PhD'
 if command -v batcat >/dev/null 2>&1; then
     alias bat='batcat'
 fi
+
+if [ -S /run/user/1000/keyring/ssh ]; then
+    export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+fi
