@@ -1,6 +1,6 @@
 $include /etc/inputrc
 
-set enable-bracketed-paste
+set enable-bracketed-paste on
 set show-mode-in-prompt on
 set emacs-mode-string
 #set editing-mode vi
