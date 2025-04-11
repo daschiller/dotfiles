@@ -1,2 +1,2 @@
 set guioptions-=T
-set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 11,Monospace\ 11
+set guifont=DejaVuSansM\ Nerd\ Font\ Mono\ 11,Monospace\ 11
