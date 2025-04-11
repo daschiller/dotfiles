@@ -35,8 +35,6 @@ cdf() {
     file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
 
-alias phd='cd ~/gdrive/Studium/PhD'
-
 # debian renames bat to batcat, undo it
 if command -v batcat >/dev/null 2>&1; then
     alias bat='batcat'
